@@ -6,9 +6,10 @@ echo "Starting archiving!"
 
 youtube-dl $url \
 --download-archive downloaded.txt \
--o "%(uploader)s/%(upload_date)s - %(title)s/%(uploader)s - %(title)s - %(upload_date)s %(id)s.%(ext)s" \
--f bestvideo+bestaudio \
---merge-output-format mkv \
+-o "%(uploader)s/%(playlist)s/%(playlist)s - S01E%(playlist_index)s - %(title)s [%(id)s].%(ext)s" \
+-f bestvideo[ext=mp4]+bestaudio[ext=m4a] \
+--merge-output-format mp4 \
+--add-metadata \
 --write-thumbnail \
 --write-description \
 --write-info-json \
@@ -16,3 +17,5 @@ youtube-dl $url \
 --all-subs
 
 echo "Archiving done!"
+
+
